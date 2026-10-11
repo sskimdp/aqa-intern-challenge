@@ -31,4 +31,14 @@ test.describe('Uchi.ru widget ', () => {
 
     expect(await widgetPage.getTitle()).toEqual('Связь с поддержкой');
   });
+
+  test('closes', async () => {
+    await widgetPage.openWidget();
+    
+    await expect(widgetPage.getWidgetBody()).toBeVisible();
+
+    await widgetPage.closeWidget();
+
+    await expect(widgetPage.getWidgetBody()).toBeHidden();
+  });
 });

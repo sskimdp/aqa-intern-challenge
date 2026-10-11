@@ -41,5 +41,9 @@ export class WidgetPage {
     getWidgetBody() {
         return this.page.locator(WidgetPage.selector.WIDGET_BODY);
     }
+
+    async closeWidget() {
+        return this.wrapper().getByRole('button').filter({ hasText: /^$/ }).click();
+    }
 }
 
