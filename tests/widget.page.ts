@@ -25,7 +25,9 @@ export class WidgetPage {
     }
 
     async getPopularArticles() {
-        return this.wrapper().locator(WidgetPage.selector.ARTICLE_POPULAR_LIST_ITEM).all()
+        const articles = this.wrapper().locator(WidgetPage.selector.ARTICLE_POPULAR_LIST_ITEM);
+        await articles.first().waitFor();
+        return articles.all();
     }
 
     async clickWriteToUs() {
